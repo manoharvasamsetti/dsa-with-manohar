@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA With Manohar - Learn Visually</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fa-solid fa-code"></i> DSA With Manohar</h2>
+                <p>Visual Learning Platform</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Searching</h3>
+                    <ul>
+                        <li class="active" data-algo="linearSearch"><i class="fa-solid fa-magnifying-glass"></i> Linear
+                            Search</li>
+                        <li data-algo="binarySearch"><i class="fa-solid fa-magnifying-glass-plus"></i> Binary Search
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Sorting</h3>
+                    <ul>
+                        <li data-algo="bubbleSort"><i class="fa-solid fa-arrow-down-short-wide"></i> Bubble Sort</li>
+                        <li data-algo="selectionSort"><i class="fa-solid fa-check-double"></i> Selection Sort</li>
+                        <li data-algo="insertionSort"><i class="fa-solid fa-arrow-right-to-bracket"></i> Insertion Sort
+                        </li>
+                        <li data-algo="mergeSort"><i class="fa-solid fa-code-merge"></i> Merge Sort</li>
+                        <li data-algo="quickSort"><i class="fa-solid fa-bolt"></i> Quick Sort</li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Data Structures</h3>
+                    <ul>
+                        <li data-algo="stack"><i class="fa-solid fa-layer-group"></i> Stack</li>
+                        <li data-algo="queue"><i class="fa-solid fa-people-line"></i> Queue</li>
+                        <li data-algo="linkedList"><i class="fa-solid fa-link"></i> Linked List</li>
+                        <li data-algo="bst"><i class="fa-solid fa-diagram-project"></i> Binary Search Tree</li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Graph Algorithms</h3>
+                    <ul>
+                        <li data-algo="bfs"><i class="fa-solid fa-water"></i> BFS</li>
+                        <li data-algo="dfs"><i class="fa-solid fa-route"></i> DFS</li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Developed by <br><strong>Manohar Vasamsetti</strong></p>
+                <p style="font-size: 0.75rem; margin-top: 8px;">DSA Trainer & Software Developer</p>
+
+                <div class="social-links" style="margin-top: 15px; display: flex; justify-content: center; gap: 15px;">
+                    <a href="https://www.linkedin.com/in/manohar-vasamsetti/" target="_blank" title="LinkedIn"
+                        style="color: #0077b5; font-size: 1.2rem; text-decoration: none;">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:manohar@example.com" title="Email"
+                        style="color: var(--text-secondary); font-size: 1.2rem; text-decoration: none;">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+
+                <div class="copyright"
+                    style="margin-top: 15px; font-size: 0.7rem; color: #64748b; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;">
+                    &copy; 2026 Manohar Vasamsetti.<br>
+                    All Rights Reserved.<br>
+                    Developed: March 2026
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header section -->
+            <header class="top-header">
+                <div class="algo-title">
+                    <h1 id="current-algo-name">Linear Search</h1>
+                </div>
+                <div class="header-controls">
+                    <button id="theme-toggle" class="icon-btn" title="Toggle Dark/Light Mode">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                    <a href="https://github.com" target="_blank" class="icon-btn" title="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Visualization Canvas / Container -->
+            <section class="visualization-area" id="visualization-area">
+                <!-- Vis elements will be injected here -->
+            </section>
+
+            <!-- Control Bar (Play, Pause, Progress, Settings) -->
+            <section class="controls-panel">
+                <div class="data-controls">
+                    <input type="text" id="array-input" placeholder="e.g. 5,12,3,8,9" class="input-field">
+                    <button id="set-data-btn" class="btn btn-secondary">Set Data</button>
+                    <button id="random-data-btn" class="btn btn-secondary"><i class="fa-solid fa-shuffle"></i>
+                        Random</button>
+                </div>
+
+                <div class="playback-controls">
+                    <button id="reset-btn" class="icon-btn" title="Reset"><i
+                            class="fa-solid fa-rotate-left"></i></button>
+                    <button id="step-prev-btn" class="icon-btn" title="Step Backward"><i
+                            class="fa-solid fa-backward-step"></i></button>
+                    <button id="play-pause-btn" class="icon-btn play-btn" title="Play/Pause"><i
+                            class="fa-solid fa-play"></i></button>
+                    <button id="step-next-btn" class="icon-btn" title="Step Forward"><i
+                            class="fa-solid fa-forward-step"></i></button>
+                </div>
+
+                <div class="speed-control">
+                    <label for="speed-slider">Speed</label>
+                    <input type="range" id="speed-slider" min="1" max="100" value="50">
+                </div>
+            </section>
+
+            <!-- Information Panels (Bottom or Side depending on layout) -->
+            <section class="info-panels">
+                <div class="panel code-panel">
+                    <div class="panel-header">
+                        <h3>Code (Java) & Pseudocode</h3>
+                        <div class="tabs">
+                            <button class="tab-btn active" data-target="pseudocode">Pseudocode</button>
+                            <button class="tab-btn" data-target="javacode">Java</button>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <!-- Pseudocode Container -->
+                        <div id="pseudocode-container" class="code-container active">
+                            <pre><code id="pseudocode-content"></code></pre>
+                        </div>
+                        <!-- Java Code Container -->
+                        <div id="javacode-container" class="code-container">
+                            <pre><code id="javacode-content"></code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel explanation-panel">
+                    <div class="panel-header">
+                        <h3>Algorithm Details</h3>
+                    </div>
+                    <div class="panel-content">
+                        <div class="complexity-section">
+                            <div class="complexity-card">
+                                <span>Time Complexity</span>
+                                <strong id="time-complexity">O(n)</strong>
+                            </div>
+                            <div class="complexity-card">
+                                <span>Space Complexity</span>
+                                <strong id="space-complexity">O(1)</strong>
+                            </div>
+                        </div>
+                        <div class="explanation-text" id="explanation-text">
+                            <h3>Linear Search</h3>
+                            <p>Linear search is the simplest search algorithm. It sequentially checks each element of
+                                the list until a match is found or the whole list has been searched.</p>
+                        </div>
+                        <div class="status-tracker">
+                            <h4>Current Operation:</h4>
+                            <p id="current-operation">Waiting to start...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="components/visualizer.js"></script>
+    <script src="components/pseudocode.js"></script>
+    <script src="components/controls.js"></script>
+
+    <!-- Algorithms -->
+    <script src="algorithms/linearSearch.js"></script>
+    <script src="algorithms/binarySearch.js"></script>
+    <script src="algorithms/bubbleSort.js"></script>
+    <script src="algorithms/selectionSort.js"></script>
+    <script src="algorithms/insertionSort.js"></script>
+    <script src="algorithms/mergeSort.js"></script>
+    <script src="algorithms/quickSort.js"></script>
+    <script src="algorithms/stack.js"></script>
+    <script src="algorithms/queue.js"></script>
+    <script src="algorithms/linkedList.js"></script>
+    <script src="algorithms/bst.js"></script>
+    <script src="algorithms/graphAlgorithms.js"></script>
+
+    <!-- Main App Logic -->
+    <script src="app.js"></script>
+</body>
+
+</html>
